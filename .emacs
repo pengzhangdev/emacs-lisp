@@ -158,6 +158,9 @@ compact-empty-funcall))
 (global-set-key [(meta f5)] 'highlight-symbol-prev)
 (global-set-key [(control meta f5)] 'highlight-symbol-query-replace)
 
+;;win navigation;; alt+[left/right/up/down]
+(windmove-default-keybindings 'meta)
+
 ;; ecb codebrowser
 ;;(require 'ecb)
 ;;(require 'ecb-autoloads)
