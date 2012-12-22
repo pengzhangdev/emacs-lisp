@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: enter_function
+# contributor: wertherzhang
+# key: enter
+# --
+printf("enter %s\n", __FUNCTION__);

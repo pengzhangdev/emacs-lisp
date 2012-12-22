@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: leave_function
+# contributor: wertherzhang
+# key: leave
+# --
+printf("leave %s\n", __FUNCTION__);
