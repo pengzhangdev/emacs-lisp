@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: ssize_t read(..., ..., ...)
+# key: read
+# --
+read(${1:fd}, ${3:buf}, ${2:sizeof(${3:buf})});

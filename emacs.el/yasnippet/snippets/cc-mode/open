@@ -1,0 +1,5 @@
+# name: int open(..., ...)
+# key: open
+# --
+
+open(${1:filepath}, ${2:O_RDONLY|O_WRONLY|O_RDWR|O_CREAT|O_APPEND});
