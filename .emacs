@@ -30,6 +30,18 @@
 ;; htmlize
 (require 'htmlize)
 
+;;dictionary
+(require 'showtip)
+(require 'sdcv)
+
+;;config sdcv
+(defun search-dictionary (&optional word)
+  "call sdcv-search-pointer and call windmove-left to return left buffer"
+(interactive)
+ (sdcv-search-pointer word)
+)
+(global-set-key "\C-c\C-d" 'search-dictionary)
+
 ;; org mode
 (require 'org)
 (require 'org-install)
