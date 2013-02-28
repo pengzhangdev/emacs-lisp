@@ -30,6 +30,12 @@
 ;; htmlize
 (require 'htmlize)
 
+;;; ido-mode
+(require 'ido)
+(ido-mode t)
+
+;;; revbuf
+(load "revbufs.el")
 
 ;; org mode
 (require 'org)
