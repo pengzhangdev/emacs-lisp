@@ -27,6 +27,18 @@
 (add-to-list 'load-path "/home/werther//emacs.el/color-theme/themes")
 (add-to-list 'load-path "/home/werther/emacs.el/org/lisp")
 
+;;; file name
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward)
+
+;;; ido-mode
+(require 'ido)
+(ido-mode t)
+
+;; copy cut and past from/to system clipboard
+(global-set-key "\C-c\C-c" 'clipboard-kill-ring-save)
+(global-set-key "\C-c\C-v" 'clipboard-yank)
+
 ;; htmlize
 (require 'htmlize)
 
@@ -87,6 +99,12 @@
 
 ;; shell
 (ansi-color-for-comint-mode-on)
+
+;;; revbuf
+(load "revbufs.el")
+
+;;; no backup file
+(setq-default make-backup-files nil)
 
 ;;Create MyCppStyle
 (defconst lttCppStyle
@@ -149,7 +167,7 @@ compact-empty-funcall))
                     (if (semantic-equivalent-tag-p (oref first tag)
                                                    (semantic-current-tag))
                         (setq first (cdr (car (cdr alist)))))
-                    (semantic-mrub-switch-tags first))))
+                    (semantic-mrub-visit first))))
 ;; highligth
 (require 'highlight-symbol)
 (global-set-key [f5] 'highlight-symbol-at-point)
@@ -169,7 +187,7 @@ compact-empty-funcall))
 ;;(load "cedet.elc")
 (load "/home/werther/emacs.el/cedet-1.0pre7/common/cedet.el")
 (require 'eassist nil 'noerror)
-(global-set-key [(f2)] 'eassist-switch-h-cpp)
+;;(global-set-key [(f2)] 'eassist-switch-h-cpp)
 
 (setq semanticdb-default-save-directory "~/.emacs.d/semanticdb/")
 
@@ -221,7 +239,7 @@ compact-empty-funcall))
 (semantic-load-enable-code-helpers)
 (global-semantic-idle-summary-mode)
 (global-semantic-decoration-mode)
-(global-semantic-highlight-func-mode)
+;;(global-semantic-highlight-func-mode)
 ;;(global-semantic-idle-tag-highlight-mode)
 ;;(semantic-idle-tag-highlight-mode)
 ;;(semantic-load-enable-excessive-code-helpers)
