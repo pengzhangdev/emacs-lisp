@@ -1,0 +1,44 @@
+#! /bin/bash
+
+##################################################
+# command   : cscope_update [dir] [filter_opt]   #
+# dir       : source tree to create cscope file  #
+# filter_opt: 0. full; 1.android;  2.xxx;        #
+##################################################
+
+cscope_file_dir=$PWD
+source_tree_rootdir=
+filter_opt=0  ##default full
+
+if [[ $1 == "/"* ]]; then 
+    source_tree_rootdir=$1
+else 
+    source_tree_rootdir=$PWD"/"$1
+fi
+
+if [[ $2 == "--android" ]]; then
+    filter_opt=1
+fi
+
+find $source_tree_rootdir -type f -name "*.h" -print0 -o -name "*.c" -print0 -o -name "*.cpp" -print0 | while IFS= read -r -d $'\0' fileName; do
+    if [ -h $fileName ]; then
+        continue;
+    fi
+###ignore some files start with out/prebuilt dir
+#    if [[ $fileName == *"/out/"* || $fileName == *"/prebuilt/"* || $fileName == *"/build/"* || $fileName == *"/device/"* || $fileName == *"/android-rt/"*
+#         || $fileName == *"/packages/"* || $fileName == *"/pdk/"* ]]; then
+#        continue;
+#    fi
+    if [[ $(echo  $fileName | wc -m) -gt 250 ]]; then
+        continue;
+    fi
+
+    if [[ $filter_opt == 1 ]]; then
+        if [[ $fileName == *"../common/"* || $fileName == *"../frameworks_gaia/"* || $fileName == *"../sdk/"* ]]; then
+            echo "\"$fileName\"" >> cscope.files
+        fi
+    elif [[ $filter_opt == 0 ]]; then
+        echo "\"$fileName\"" >> cscope.files
+    fi
+
+done
