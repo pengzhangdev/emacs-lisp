@@ -12,20 +12,20 @@
  '(show-paren-mode t)
  '(text-mode-hook (quote (turn-on-auto-fill text-mode-hook-identify))))
  
-(add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/")
-(add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/cedet1.7/common/")
-(add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/cedet1.7/semantic/")
-(add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/cedet1.7/speedbar/")
-(add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/cedet1.7/cogre/")
-(add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/cedet1.7/contrib/")
-(add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/cedet1.7/ede/")
-(add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/cedet1.7/eieio/")
-(add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/cedet1.7/srecode/")
-(add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/cedet1.7/")
-(add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/color-theme")
-(add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/color-theme/themes")
-(add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/yasnippet")
-(add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/auto-complete-1.3.1")
+(add-to-list 'load-path "./emacs.el/")
+(add-to-list 'load-path "./emacs.el/cedet1.7/common/")
+(add-to-list 'load-path "./emacs.el/cedet1.7/semantic/")
+(add-to-list 'load-path "./emacs.el/cedet1.7/speedbar/")
+(add-to-list 'load-path "./emacs.el/cedet1.7/cogre/")
+(add-to-list 'load-path "./emacs.el/cedet1.7/contrib/")
+(add-to-list 'load-path "./emacs.el/cedet1.7/ede/")
+(add-to-list 'load-path "./emacs.el/cedet1.7/eieio/")
+(add-to-list 'load-path "./emacs.el/cedet1.7/srecode/")
+(add-to-list 'load-path "./emacs.el/cedet1.7/")
+(add-to-list 'load-path "./emacs.el/color-theme")
+(add-to-list 'load-path "./emacs.el/color-theme/themes")
+(add-to-list 'load-path "./emacs.el/yasnippet")
+(add-to-list 'load-path "./emacs.el/auto-complete-1.3.1")
 
 ;; htmlize
 ;;(require 'htmlize)
@@ -161,7 +161,6 @@
 ;;;;加载cedet相关
 
 (load "cedet.el")
-;;(load "/home/werther/Ubuntu One/cedet1.7/common/cedet.el")
 
 (setq semanticdb-default-save-directory "~/.emacs.d/semanticdb/")
 
@@ -193,7 +192,7 @@
 (global-set-key (kbd "<f6>") 'goto-line)
 
 ;;;;smart compile
-(load "/home/werther/Ubuntu One/emacs.el/cedet1.7/smart-compile.el")
+(load "smart-compile.el")
 (global-set-key (kbd "<f7>") 'smart-compile)
 
 
@@ -341,3 +340,9 @@
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
 (display-time)
+
+
+;;; my-config.el
+(if (file-exists-p "my-config.el") 
+   (load "my-config.el") 
+   (message "No user custom config file found") )

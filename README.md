@@ -1,4 +1,4 @@
 emacs-lisp
 ==========
 
-emacs lisp &amp; .emacs
+./install-emacs-config.sh  to install the config 
