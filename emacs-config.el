@@ -28,60 +28,68 @@
 (add-to-list 'load-path "/home/werther/Ubuntu One/emacs.el/auto-complete-1.3.1")
 
 ;; htmlize
-(require 'htmlize)
+;;(require 'htmlize)
 
-;;; ido-mode
-(require 'ido)
-(ido-mode t)
+;;dictionary
+;;(require 'sdcv)
 
-;;; revbuf
-(load "revbufs.el")
+;;config sdcv
+;;(defun search-dictionary (&optional word)
+;;  "call sdcv-search-pointer and call windmove-left to return left buffer"
+;;(interactive)
+;; (sdcv-search-pointer word)
+;;)
+;;(global-set-key "\C-c\C-d" 'search-dictionary)
 
-;; org mode
-(require 'org)
-(require 'org-install)
-(require 'org-publish)
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(add-hook 'org-mode-hook 'turn-on-font-lock)
-(add-hook 'org-mode-hook
-          (lambda () (setq truncate-lines nil)))
-(global-set-key "\C-cl" 'org-store-link)
-(global-set-key "\C-ca" 'org-agenda)
-(global-set-key "\C-cb" 'org-iswitchb)
-(setq org-export-with-sub-superscripts '{})
 
-(setq org-publish-project-alist
-      '(("note-org"
-         :base-directory "/root/Documents/Notes/orgmodeNotes/org"
-         :publishing-directory "/root/Documents/Notes/orgmodeNotes/publish"
-      :base-extension "org"
-         :recursive t
-         :publishing-function org-publish-org-to-html
-         :auto-index t
-         :index-filename "index.org"
-         :index-title "index"
-         :link-home "index.html"
-         :section-numbers nil
-         :style "<link rel=\"stylesheet\"
-                href=\"./css/stylesheet.css\"
-                type=\"text/css\"/>")
-;;        ("note-static"
-;;         :base-directory "/root/Documents/Notes/orgmodeNotes/org"
-;;         :publishing-directory "/root/Documents/Notes/orgmodeNotes/publish"
-;;         :recursive t
-;;         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|swf\\|zip\\|gz\\|txt\\|el"
-;;         :publishing-function org-publish-attachment)
-        ("note" 
-         :components ("note-org")
-         :author "wertherzhang@gmail.com"
-         )
-	  )
-)
+;; ;; org mode
+;; (require 'org)
+;; (require 'org-install)
+;; (require 'org-publish)
+;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+;; (add-hook 'org-mode-hook 'turn-on-font-lock)
+;; (add-hook 'org-mode-hook
+;;           (lambda () (setq truncate-lines nil)))
+;; (global-set-key "\C-cl" 'org-store-link)
+;; (global-set-key "\C-ca" 'org-agenda)
+;; (global-set-key "\C-cb" 'org-iswitchb)
+;; (setq org-export-with-sub-superscripts '{})
 
-(global-set-key (kbd "<f9> p") 'org-publish)
+;; (setq org-publish-project-alist
+;;       '(("note-org"
+;;          :base-directory "/root/Documents/Notes/orgmodeNotes/org"
+;;          :publishing-directory "/root/Documents/Notes/orgmodeNotes/publish"
+;;       :base-extension "org"
+;;          :recursive t
+;;          :publishing-function org-publish-org-to-html
+;;          :auto-index t
+;;          :index-filename "index.org"
+;;          :index-title "index"
+;;          :link-home "index.html"
+;;          :section-numbers nil
+;;          :style "<link rel=\"stylesheet\"
+;;                 href=\"./css/stylesheet.css\"
+;;                 type=\"text/css\"/>")
+;; ;;        ("note-static"
+;; ;;         :base-directory "/root/Documents/Notes/orgmodeNotes/org"
+;; ;;         :publishing-directory "/root/Documents/Notes/orgmodeNotes/publish"
+;; ;;         :recursive t
+;; ;;         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|swf\\|zip\\|gz\\|txt\\|el"
+;; ;;         :publishing-function org-publish-attachment)
+;;         ("note" 
+;;          :components ("note-org")
+;;          :author "wertherzhang@gmail.com"
+;;          )
+;; 	  )
+;; )
+
+;; (global-set-key (kbd "<f9> p") 'org-publish)
 
 
 (defconst user-head-file-dir   (list "./" "../hdr" "../include") "usr head file")
+
+;; my custom code style
+(load "my_codestyle.el")
 
 ;; O_RDONLY
 (defun make-some-files-read-only ()
@@ -97,13 +105,13 @@
 ;;(global-set-key[f1] 'help-command)
 
 ;;设置语言风格和缩进
-(setq c-basic-offset 4)
-(add-hook 'c-mode-common-hook ( lambda()
-				( c-set-style "k&r" ) 
-				(setq c-basic-offset 4) ) ) ;;设置C语言默认格式 
-(add-hook 'c++-mode-common-hook ( lambda() 
-				  (c-set-style "stroustrup") 
-				  (setq c-basic-offset 4) ) ) ;;设置C++语言默认格式 
+;;(setq c-basic-offset 4)
+;;(add-hook 'c-mode-common-hook ( lambda()
+;;				( c-set-style "k&r" ) 
+;;				(setq c-basic-offset 4) ) ) ;;设置C语言默认格式 
+;;(add-hook 'c++-mode-common-hook ( lambda() 
+;;				  (c-set-style "stroustrup") 
+;;				  (setq c-basic-offset 4) ) ) ;;设置C++语言默认格式 
 	  
 ;;;Tab 转空格
 (setq-default indent-tabs-mode  nil)
@@ -114,12 +122,16 @@
 ;;(add-to-list 'magic-mode-alist'("#include" . c++-mode))
 ;;(add-to-list 'magic-mode-alist'("#ifndef" . c++-mode))
 
+;;; ido-mode
+(require 'ido)
+(ido-mode t)
+
 ;;;speedbar
 (global-set-key [(f4)] 'speedbar-get-focus)
 
 ;;设置代码跳转
-(global-set-key [f3] 'semantic-ia-fast-jump)
-(global-set-key [f2]
+(global-set-key [(control f3)] 'semantic-ia-fast-jump)
+(global-set-key [(control f2)]
                 (lambda ()
                   (interactive)
                   (if (ring-empty-p (oref semantic-mru-bookmark-ring ring))
@@ -132,6 +144,20 @@
                         (setq first (cdr (car (cdr alist)))))
                     (semantic-mrub-switch-tags first))))
 
+;; highligth
+(require 'highlight-symbol)
+(global-set-key [f5] 'highlight-symbol-at-point)
+(global-set-key [(control f5)] 'highlight-symbol-next)
+(global-set-key [(shift f5)] 'highlight-symbol-prev)
+(global-set-key [(meta f5)] 'highlight-symbol-prev)
+(global-set-key [(control meta f5)] 'highlight-symbol-query-replace)
+
+(global-set-key [(control left)] 'windmove-left)
+(global-set-key [(control down)] 'windmove-down)
+(global-set-key [(control up)] 'windmove-up)
+(global-set-key [(control right)] 'windmove-right)
+
+
 ;;;;加载cedet相关
 
 (load "cedet.el")
@@ -141,6 +167,9 @@
 
 ;;(defvar semanticdb-database-list nil
 ;;  	"/usr/include/qt4")
+
+;;;w3m
+;;(load "w3m_custom.el")
 
 ;;;;;;yasnippet
 (require 'yasnippet)
@@ -161,6 +190,7 @@
 (global-set-key "\C-w" 'backward-kill-word)
 (global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-c\C-k" 'kill-region)
+(global-set-key (kbd "<f6>") 'goto-line)
 
 ;;;;smart compile
 (load "/home/werther/Ubuntu One/emacs.el/cedet1.7/smart-compile.el")
@@ -190,7 +220,7 @@
  
 
 ;;;;启动EDE项目管理
-(global-ede-mode t)
+;;(global-ede-mode t)
 
 ;;;;开启semantic
 
@@ -225,6 +255,9 @@
 ;;;;gtags
 (autoload 'gtags-mode "gtags" "" t) 
 (gtags-mode 1)
+(setq gtags-auto-update 1)
+(global-set-key [f3] 'gtags-find-tag-from-here)
+(global-set-key [f2] 'gtags-pop-stack)
 (global-set-key (kbd "C-c g f") 'gtags-find-tag)  
 (global-set-key (kbd "C-c g r") 'gtags-find-rtag)
 (global-set-key (kbd "C-c g u") 'gtags-pop-stack)  
@@ -308,4 +341,3 @@
 (setq display-time-day-and-date t)
 (setq display-time-24hr-format t)
 (display-time)
-:q

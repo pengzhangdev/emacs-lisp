@@ -1,0 +1,20 @@
+(autoload 'w3m "w3m" "interface for w3m on emacs" t)
+(setq w3m-command-arguments '("-cookie" "-F"))
+(setq w3m-use-cookies t)
+(setq w3m-home-page "http://www.google.com")
+(require 'mime-w3m)
+(setq default-process-coding-system '(euc-cn. euc-cn)
+      default-pathname-coding-system 'euc-cn
+      current-language-environment "Chinese-GB"
+      locale-coding-system 'euc-cn
+      buffer-file-coding-system 'euc-cn)
+(setq w3m-default-display-inline-image t)
+(setq w3m-arrived-file-coding-system 'utf-8)
+(setq w3m-bookmark-file-coding-system 'utf-8)
+(setq w3m-default-url-coding-system 'utf-8)
+(setq w3m-output-coding-system 'utf-8)
+(setq w3m-coding-system 'utf-8)
+(setq w3m-input-coding-system 'utf-8)
+(setq w3m-find-coding-system 'utf-8)
+(setq w3m-default-coding-system 'utf-8)
+(setq w3m-coding-system-priority-list '(euc-cn))
