@@ -12,21 +12,6 @@
  '(show-paren-mode t)
  '(text-mode-hook (quote (turn-on-auto-fill text-mode-hook-identify))))
  
-(add-to-list 'load-path "./emacs.el/")
-(add-to-list 'load-path "./emacs.el/cedet1.7/common/")
-(add-to-list 'load-path "./emacs.el/cedet1.7/semantic/")
-(add-to-list 'load-path "./emacs.el/cedet1.7/speedbar/")
-(add-to-list 'load-path "./emacs.el/cedet1.7/cogre/")
-(add-to-list 'load-path "./emacs.el/cedet1.7/contrib/")
-(add-to-list 'load-path "./emacs.el/cedet1.7/ede/")
-(add-to-list 'load-path "./emacs.el/cedet1.7/eieio/")
-(add-to-list 'load-path "./emacs.el/cedet1.7/srecode/")
-(add-to-list 'load-path "./emacs.el/cedet1.7/")
-(add-to-list 'load-path "./emacs.el/color-theme")
-(add-to-list 'load-path "./emacs.el/color-theme/themes")
-(add-to-list 'load-path "./emacs.el/yasnippet")
-(add-to-list 'load-path "./emacs.el/auto-complete-1.3.1")
-
 ;; htmlize
 ;;(require 'htmlize)
 
@@ -114,9 +99,9 @@
 ;;				  (setq c-basic-offset 4) ) ) ;;设置C++语言默认格式 
 	  
 ;;;Tab 转空格
-(setq-default indent-tabs-mode  nil)
-(setq default-tab-width 4)
-(setq tab-width 4)
+;;(setq-default indent-tabs-mode  nil)
+;;(setq default-tab-width 4)
+;;(setq tab-width 4)
 
 ;;设置自动模式
 ;;(add-to-list 'magic-mode-alist'("#include" . c++-mode))
