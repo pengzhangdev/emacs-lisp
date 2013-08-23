@@ -218,7 +218,7 @@
 (semantic-load-enable-code-helpers)
 (global-semantic-idle-summary-mode)
 (global-semantic-decoration-mode nil)
-(global-semantic-idle-tag-highlight-mode)
+;;(global-semantic-idle-tag-highlight-mode)
 (semantic-load-enable-excessive-code-helpers)
 ;;(semantic-idle-completions-mode -1)
 (global-semantic-highlight-func-mode -1)
