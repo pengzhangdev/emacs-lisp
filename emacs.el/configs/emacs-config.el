@@ -71,6 +71,14 @@
 ;; (global-set-key (kbd "<f9> p") 'org-publish)
 
 
+;;; file mode
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+
 (defconst user-head-file-dir   (list "./" "../hdr" "../include") "usr head file")
 
 ;; my custom code style

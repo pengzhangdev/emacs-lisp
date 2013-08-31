@@ -26,9 +26,9 @@ function check_file_exits()
                 echo "Stop to install emacs config";;
             *)
                 echo "Pls input Y/N";;
-            esac
+        esac
     fi
-        
+    
 }
 
 function check_binary()
@@ -43,26 +43,40 @@ function check_binary()
 
 function env_check()
 {
-   local commands_needed=(emacs cscope gtags pp)
+    local commands_needed=(emacs cscope gtags pp)
 
-   for i in ${commands_needed[@]}
-   do
-       echo $i
-       check_binary $i
-       echo $?
-       if [ ! $? == 0 ]; then
-           exit 1
-       fi
-   done
-   
+    for i in ${commands_needed[@]}
+    do
+	echo $i
+	check_binary $i
+	echo $?
+	if [ ! $? == 0 ]; then
+            exit 1
+	fi
+    done
+    
 }
 
-echo "Start install emacs-config to ~/.emacs"
+function sync_submodule()
+{
+    cd "$(dirname "$0")"
+    git submodule init
+    git submodule update
+    cd -
+}
+
+echo "Start install-emacs-config"
 
 #env_check
 #if [ ! $? == 0 ]; then
 #    exit 1
 #fi
 
+echo "update emacs-config submodule"
+sync_submodule
+echo "done submodule update"
+
+echo "Install emacs config file"
 check_file_exits
+echo "Done"
 
