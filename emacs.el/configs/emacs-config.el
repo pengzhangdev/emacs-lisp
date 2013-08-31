@@ -76,6 +76,9 @@
 ;; my custom code style
 (load "my_codestyle.el")
 
+;; revbufs
+(load "revbufs.el")
+
 ;; O_RDONLY
 (defun make-some-files-read-only ()
   "when file opened is of a certain mode, make it read only"
