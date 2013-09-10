@@ -232,7 +232,7 @@
 ;;(global-semantic-idle-tag-highlight-mode)
 (semantic-load-enable-excessive-code-helpers)
 ;;(semantic-idle-completions-mode -1)
-(global-semantic-highlight-func-mode -1)
+(global-semantic-highlight-func-mode)
 (global-semantic-idle-completions-mode -1)
 ;;(semantic-idle-completion-mode)
 ;;(global-semantic-decoration-mode)

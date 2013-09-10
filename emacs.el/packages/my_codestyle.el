@@ -15,7 +15,7 @@
   (setq c-basic-offset tab-width)
   (setq indent-tabs-mode nil) ;; force only spaces for indentation
   (c-set-offset 'substatement-open 0)
-  (c-set-offset 'arglist-intro c-lineup-arglist-intro-after-paren)
+;;  (c-set-offset 'arglist-intro c-lineup-arglist-intro-after-paren)
   )
 ;; google sytle is defined in above function
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
