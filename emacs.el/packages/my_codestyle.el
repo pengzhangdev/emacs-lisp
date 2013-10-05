@@ -9,6 +9,7 @@
       (setq counter (1+ counter)))
     (set (make-local-variable 'tab-stop-list) (nreverse ls))))
 (defun my-c-mode-common-hook ()
+  (google-set-c-style)
   (c-set-style "google")
   (setq tab-width 4)
   (my-build-tab-stop-list tab-width)
@@ -19,6 +20,8 @@
   )
 ;; google sytle is defined in above function
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+;;(add-hook 'c-mode-common-hook 'google-set-c-style)
+;;(add-hook 'c++-mode-common-hook 'google-set-c-style)
 (add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
 
 ;;; cpplint
@@ -26,5 +29,11 @@
   "check source code format according to Google Style Guide"
   (interactive)
   (compilation-start (concat "python ~/bin/cpplint.py " (buffer-file-name))))
+
+;;;; cppcheck
+(defun cppcheck ()
+  "check source code foramt according to cppcheck"
+  (interactive)
+  (compilation-start (concat "cppcheck --enable=all " (buffer-file-name))))
 
 
