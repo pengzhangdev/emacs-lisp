@@ -1,3 +1,6 @@
 [submodule "emacs.el/packages/markdown-mode"]
 	path = emacs.el/packages/markdown-mode
 	url = http://jblevins.org/git/markdown-mode.git
+[submodule "emacs.el/packages/lua-mode"]
+	path = emacs.el/packages/lua-mode
+	url = https://github.com/immerrr/lua-mode.git

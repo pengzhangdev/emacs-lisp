@@ -74,9 +74,12 @@
 ;;; file mode
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
 
 (defconst user-head-file-dir   (list "./" "../hdr" "../include") "usr head file")
@@ -232,7 +235,7 @@
 ;;(global-semantic-idle-tag-highlight-mode)
 (semantic-load-enable-excessive-code-helpers)
 ;;(semantic-idle-completions-mode -1)
-(global-semantic-highlight-func-mode)
+(global-semantic-highlight-func-mode -1)
 (global-semantic-idle-completions-mode -1)
 ;;(semantic-idle-completion-mode)
 ;;(global-semantic-decoration-mode)
