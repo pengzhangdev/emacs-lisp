@@ -4,3 +4,9 @@
 [submodule "emacs.el/packages/lua-mode"]
 	path = emacs.el/packages/lua-mode
 	url = https://github.com/immerrr/lua-mode.git
+[submodule "emacs.el/packages/molokai-theme"]
+	path = emacs.el/packages/molokai-theme
+	url = https://github.com/lvillani/el-monokai-theme.git
+[submodule "emacs"]
+	path = emacs
+	url = git://git.savannah.gnu.org/emacs.git
