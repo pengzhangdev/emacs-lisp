@@ -90,6 +90,11 @@
 ;; revbufs
 (load "revbufs.el")
 
+;;  
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
+
 ;; O_RDONLY
 (defun make-some-files-read-only ()
   "when file opened is of a certain mode, make it read only"
@@ -274,6 +279,12 @@
 (require 'session)
 (add-hook 'after-init-hook
                     'session-initialize)
+
+;; enable emacs tmux
+(require 'emamux)
+(global-set-key (kbd "C-c t r") 'emamux:run-command)
+(global-set-key (kbd "C-c t d") 'emamux:close-runner-pane) 
+(global-set-key (kbd "C-c t i") 'emamux:interrupt-runner) 
 
 ;;(semantic-mode)
 

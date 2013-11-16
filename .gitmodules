@@ -10,3 +10,6 @@
 [submodule "emacs"]
 	path = emacs
 	url = git://git.savannah.gnu.org/emacs.git
+[submodule "emacs.el/packages/emamux"]
+	path = emacs.el/packages/emamux
+	url = https://github.com/syohex/emacs-emamux.git
