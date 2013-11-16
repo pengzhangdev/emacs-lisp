@@ -8,7 +8,7 @@
  '(face-font-family-alternatives (quote (("YaHei Consolas Hybrid" "courier" "fixed") ("courier" "CMU Typewriter Text" "fixed") ("Sans Serif" "helv" "helvetica" "arial" "fixed") ("helv" "helvetica" "arial" "fixed"))))
  '(face-font-registry-alternatives (quote (("unicode-bmp" "gb2312.1980" "gb2312.80&gb8565.88" "gbk" "gb18030") ("jisx0208.1990" "jisx0208.1983" "jisx0208.1978") ("ksc5601.1989" "ksx1001.1992" "ksc5601.1987") ("muletibetan-2" "muletibetan-0"))))
  '(scroll-bar-mode (quote right))
- '(semantic-c-dependency-system-include-path (quote ("/usr/include" "/usr/src/linux-headers-2.6.35-31-generic/include")))
+ '(semantic-c-dependency-system-include-path (quote ("/usr/include")))
  '(show-paren-mode t)
  '(text-mode-hook (quote (turn-on-auto-fill text-mode-hook-identify))))
  
@@ -129,8 +129,8 @@
 (global-set-key [(f4)] 'speedbar-get-focus)
 
 ;;设置代码跳转
-(global-set-key [(control f3)] 'semantic-ia-fast-jump)
-(global-set-key [(control f2)]
+(global-set-key (kbd "C-c <f3>") 'semantic-ia-fast-jump)
+(global-set-key (kbd "C-c <f2>") 
                 (lambda ()
                   (interactive)
                   (if (ring-empty-p (oref semantic-mru-bookmark-ring ring))
@@ -267,6 +267,13 @@
      (setq hl-line-face 'underline)
      (hl-line-mode 1)
 ))
+
+;;;; desktop save mode and session mode
+(desktop-save-mode 1) 
+
+(require 'session)
+(add-hook 'after-init-hook
+                    'session-initialize)
 
 ;;(semantic-mode)
 
