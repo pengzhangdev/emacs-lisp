@@ -13,3 +13,6 @@
 [submodule "emacs.el/packages/emamux"]
 	path = emacs.el/packages/emamux
 	url = https://github.com/syohex/emacs-emamux.git
+[submodule "emacs.el/packages/magit"]
+	path = emacs.el/packages/magit
+	url = https://github.com/magit/magit.git
