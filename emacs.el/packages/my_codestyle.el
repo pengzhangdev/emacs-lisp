@@ -19,11 +19,12 @@
 ;;  (c-set-offset 'arglist-intro c-lineup-arglist-intro-after-paren)
   )
 ;; google sytle is defined in above function
-(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-;;(add-hook 'c-mode-common-hook 'google-set-c-style)
-;;(add-hook 'c++-mode-common-hook 'google-set-c-style)
-(add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
+;;(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c++-mode-common-hook 'google-set-c-style)
 
+;;(add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
 ;;; cpplint
 (defun cpplint ()
   "check source code format according to Google Style Guide"
