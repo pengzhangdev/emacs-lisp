@@ -13,3 +13,6 @@
 [submodule "emacs.el/packages/emamux"]
 	path = emacs.el/packages/emamux
 	url = https://github.com/syohex/emacs-emamux.git
+[submodule "emacs.el/packages/git-emacs"]
+	path = emacs.el/packages/git-emacs
+	url = https://github.com/tsgates/git-emacs.git
