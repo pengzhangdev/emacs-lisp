@@ -122,7 +122,7 @@ Suitable for inclusion in `c-offsets-alist'."
                              'c-lineup-assignments)
                           ++))
                         (label . /)
-                        (case-label . +)
+                        (case-label . 0)
                         (statement-case-open . +)
                         (statement-case-intro . +) ; case w/o {
                         (access-label . /)

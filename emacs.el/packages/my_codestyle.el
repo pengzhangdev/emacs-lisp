@@ -22,6 +22,25 @@
 ;;(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c++-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-hook
+          (lambda ()
+            (let ((filename (buffer-file-name)))
+              ;; Enable kernel mode for the appropriate files
+              (when (and filename
+                         (string-match ".*work.*"
+                                       filename))
+                (setq indent-tabs-mode t)
+                (c-set-style "my-c-mode-common-hook")))))
+
+(add-hook 'c++-mode-hook
+          (lambda ()
+            (let ((filename (buffer-file-name)))
+              ;; Enable kernel mode for the appropriate files
+              (when (and filename
+                         (string-match ".*work.*"
+                                       filename))
+                (setq indent-tabs-mode t)
+                (c-set-style "my-c-mode-common-hook")))))
 
 ;;(add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
