@@ -14,7 +14,7 @@
   (google-set-c-style)
   (c-set-style "google")
   (setq tab-width 4)
-  (my-build-tab-stop-list tab-width)
+;; (my-build-tab-stop-list tab-width)
   (setq c-basic-offset tab-width)
   (setq indent-tabs-mode nil) ;; force only spaces for indentation
   (c-set-offset 'substatement-open 0)
@@ -31,7 +31,6 @@
               (when (and filename
                          (string-match ".*work.*"
                                        filename))
-                (setq indent-tabs-mode t)
                 (c-set-style "my-c-mode-common-hook")))))
 
 (add-hook 'c++-mode-hook
@@ -41,7 +40,6 @@
               (when (and filename
                          (string-match ".*work.*"
                                        filename))
-                (setq indent-tabs-mode t)
                 (c-set-style "my-c-mode-common-hook")))))
 ;;(add-hook 'c++-mode-common-hook 'my-c-mode-common-hook)
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
