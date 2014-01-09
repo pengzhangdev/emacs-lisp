@@ -11,7 +11,7 @@
  '(semantic-c-dependency-system-include-path (quote ("/usr/include")))
  '(show-paren-mode t)
  '(text-mode-hook (quote (turn-on-auto-fill text-mode-hook-identify))))
- 
+
 ;; htmlize
 ;;(require 'htmlize)
 
@@ -61,7 +61,7 @@
 ;; ;;         :recursive t
 ;; ;;         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|swf\\|zip\\|gz\\|txt\\|el"
 ;; ;;         :publishing-function org-publish-attachment)
-;;         ("note" 
+;;         ("note"
 ;;          :components ("note-org")
 ;;          :author "wertherzhang@gmail.com"
 ;;          )
@@ -84,13 +84,16 @@
 
 (defconst user-head-file-dir   (list "./" "../hdr" "../include") "usr head file")
 
+
 ;; my custom code style
+;;(setq indent-tabs-mode nil) ;; force only spaces for indentation for all mode
+(setq-default indent-tabs-mode nil)
 (load "my_codestyle.el")
 
 ;; revbufs
 (load "revbufs.el")
 
-;;  
+;;
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
 
@@ -111,12 +114,12 @@
 ;;设置语言风格和缩进
 ;;(setq c-basic-offset 4)
 ;;(add-hook 'c-mode-common-hook ( lambda()
-;;				( c-set-style "k&r" ) 
-;;				(setq c-basic-offset 4) ) ) ;;设置C语言默认格式 
-;;(add-hook 'c++-mode-common-hook ( lambda() 
-;;				  (c-set-style "stroustrup") 
-;;				  (setq c-basic-offset 4) ) ) ;;设置C++语言默认格式 
-	  
+;;				( c-set-style "k&r" )
+;;				(setq c-basic-offset 4) ) ) ;;设置C语言默认格式
+;;(add-hook 'c++-mode-common-hook ( lambda()
+;;				  (c-set-style "stroustrup")
+;;				  (setq c-basic-offset 4) ) ) ;;设置C++语言默认格式
+
 ;;;Tab 转空格
 ;;(setq-default indent-tabs-mode  nil)
 ;;(setq default-tab-width 4)
@@ -135,7 +138,7 @@
 
 ;;设置代码跳转
 (global-set-key (kbd "C-c <f3>") 'semantic-ia-fast-jump)
-(global-set-key (kbd "C-c <f2>") 
+(global-set-key (kbd "C-c <f2>")
                 (lambda ()
                   (interactive)
                   (if (ring-empty-p (oref semantic-mru-bookmark-ring ring))
@@ -181,12 +184,12 @@
                              yas/ido-prompt
                              yas/completing-prompt))
  (yas/global-mode 1)
- 
+
 ;;;;;;auto-complete
 (load "auto-complete-settings.el")
 
-(define-key ac-completing-map "\r" nil) 
-(define-key ac-completing-map "\t" nil) 
+(define-key ac-completing-map "\r" nil)
+(define-key ac-completing-map "\t" nil)
 (define-key ac-completing-map "\M-j" 'ac-complete)
 
 ;;;;set global key
@@ -216,11 +219,11 @@
 
 ;;;; show errors in C/Cpp
 (global-cwarn-mode 1)
- 
+
 ;;;;开启行号
 (global-linum-mode t)
 
- 
+
 
 ;;;;启动EDE项目管理
 ;;(global-ede-mode t)
@@ -252,21 +255,21 @@
 ;;;;;代码折叠
 (require 'semantic-tag-folding nil 'noerror)
 (global-semantic-tag-folding-mode 1)
-(define-key semantic-tag-folding-mode-map (kbd "C--") 'semantic-tag-folding-fold-block)  
-(define-key semantic-tag-folding-mode-map (kbd "C-=") 'semantic-tag-folding-show-block)  
+(define-key semantic-tag-folding-mode-map (kbd "C--") 'semantic-tag-folding-fold-block)
+(define-key semantic-tag-folding-mode-map (kbd "C-=") 'semantic-tag-folding-show-block)
 
 ;;;;gtags
-(autoload 'gtags-mode "gtags" "" t) 
+(autoload 'gtags-mode "gtags" "" t)
 (gtags-mode 1)
 (setq gtags-auto-update 1)
 (global-set-key [f3] 'gtags-find-tag-from-here)
 (global-set-key [f2] 'gtags-pop-stack)
-(global-set-key (kbd "C-c g f") 'gtags-find-tag)  
+(global-set-key (kbd "C-c g f") 'gtags-find-tag)
 (global-set-key (kbd "C-c g r") 'gtags-find-rtag)
-(global-set-key (kbd "C-c g u") 'gtags-pop-stack)  
+(global-set-key (kbd "C-c g u") 'gtags-pop-stack)
 (global-set-key (kbd "C-c g s") 'gtags-find-symbols)
 (global-set-key (kbd "C-c g g") 'gtags-find-with-grep)
-(global-set-key (kbd "C-c g o") 'gtags-select-tag) 
+(global-set-key (kbd "C-c g o") 'gtags-select-tag)
 (add-hook 'gtags-select-mode-hook
   '(lambda ()
      (setq hl-line-face 'underline)
@@ -274,7 +277,7 @@
 ))
 
 ;;;; desktop save mode and session mode
-(desktop-save-mode 1) 
+(desktop-save-mode 1)
 
 (require 'session)
 (add-hook 'after-init-hook
@@ -283,8 +286,8 @@
 ;; enable emacs tmux
 (require 'emamux)
 (global-set-key (kbd "C-c t r") 'emamux:run-command)
-(global-set-key (kbd "C-c t d") 'emamux:close-runner-pane) 
-(global-set-key (kbd "C-c t i") 'emamux:interrupt-runner) 
+(global-set-key (kbd "C-c t d") 'emamux:close-runner-pane)
+(global-set-key (kbd "C-c t i") 'emamux:interrupt-runner)
 
 ;;(semantic-mode)
 
@@ -365,6 +368,6 @@
 
 
 ;;; my-config.el
-(if (file-exists-p "my-config.el") 
-   (load "my-config.el") 
+(if (file-exists-p "my-config.el")
+   (load "my-config.el")
    (message "No user custom config file found") )
