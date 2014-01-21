@@ -86,6 +86,7 @@
 
 
 ;; my custom code style
+(setq-default indent-tabs-mode nil)
 (load "my_codestyle.el")
 
 ;; revbufs

@@ -28,37 +28,44 @@ Non-interactive arguments are Begin End Regexp"
 
 (defun my-build-tab-stop-list (width)
   (let ((num-tab-stops (/ 80 width))
-	(counter 1)
-	(ls nil))
+        (counter 1)
+        (ls nil))
     (while (<= counter num-tab-stops)
       (setq ls (cons (* width counter) ls))
       (setq counter (1+ counter)))
     (set (make-local-variable 'tab-stop-list) (nreverse ls))))
+
 (defun my-c-mode-common-hook ()
   (google-set-c-style)
   (c-set-style "google")
   (setq tab-width 4)
-;; (my-build-tab-stop-list tab-width)
+  ;; (my-build-tab-stop-list tab-width)
   (setq c-basic-offset tab-width)
   ;; (setq indent-tabs-mode nil) ;; force only spaces for indentation
   (infer-indentation-style)
   (c-set-offset 'substatement-open 0)
-;;  (flymake-mode)
+  ;;  (flymake-mode)
   ;;  (c-set-offset 'arglist-intro c-lineup-arglist-intro-after-paren)
   )
 ;; google sytle is defined in above function
 ;;(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 (add-hook 'c-mode-common-hook
-          (function (lambda () (google-set-c-style)
-                      (infer-indentation-style))))
+          (function (lambda ()
+                      (google-set-c-style)
+                      (infer-indentation-style)
+                      (setq tab-width 4)
+                      (setq c-basic-offset tab-width))))
 (add-hook 'c++-mode-common-hook
-          (function (lambda () (google-set-c-style)
-                      (infer-indentation-style))))
+          (function (lambda ()
+                      (google-set-c-style)
+                      (infer-indentation-style)
+                      (setq tab-width 4)
+                      (setq c-basic-offset tab-width))))
 
-(add-hook 'c-mode-common-hook
-          (function (lambda () (flymake-mode))))
-(add-hook 'c++-mode-common-hook
-          (function (lambda () (flymake-mode))))
+;; (add-hook 'c-mode-common-hook
+;;           (function (lambda () (flymake-mode))))
+;; (add-hook 'c++-mode-common-hook
+;;           (function (lambda () (flymake-mode))))
 
 (add-hook 'c-mode-hook
           (lambda ()
@@ -92,10 +99,10 @@ Non-interactive arguments are Begin End Regexp"
 
 ;; Draw tabs with the same color as trailing whitespace
 (add-hook 'font-lock-mode-hook
-	  (lambda ()
-	    (font-lock-add-keywords
-	     nil
-	     '(("\t" 0 'trailing-whitespace prepend)))))
+          (lambda ()
+            (font-lock-add-keywords
+             nil
+             '(("\t" 0 'trailing-whitespace prepend)))))
 
 ;; 80 col
 (column-number-mode 1)
