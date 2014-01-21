@@ -43,12 +43,18 @@ Non-interactive arguments are Begin End Regexp"
   ;; (setq indent-tabs-mode nil) ;; force only spaces for indentation
   (infer-indentation-style)
   (c-set-offset 'substatement-open 0)
+;;  (flymake-mode)
   ;;  (c-set-offset 'arglist-intro c-lineup-arglist-intro-after-paren)
   )
 ;; google sytle is defined in above function
 ;;(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 (add-hook 'c-mode-common-hook 'google-set-c-style)
 (add-hook 'c++-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook
+          (function (lambda () (flymake-mode))))
+(add-hook 'c++-mode-common-hook
+          (function (lambda () (flymake-mode))))
+
 (add-hook 'c-mode-hook
           (lambda ()
             (let ((filename (buffer-file-name)))

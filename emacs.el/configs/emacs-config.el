@@ -334,6 +334,8 @@
 '(magit-item-highlight ((t nil)))
 )
 
+;; flymake check c/cpp syntax errors
+(require 'flymake)
 
 (global-font-lock-mode t);;语法高亮
 (setq font-lock-maximum-decoration t)
