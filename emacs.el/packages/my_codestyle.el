@@ -48,8 +48,13 @@ Non-interactive arguments are Begin End Regexp"
   )
 ;; google sytle is defined in above function
 ;;(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
-(add-hook 'c-mode-common-hook 'google-set-c-style)
-(add-hook 'c++-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook
+          (function (lambda () (google-set-c-style)
+                      (infer-indentation-style))))
+(add-hook 'c++-mode-common-hook
+          (function (lambda () (google-set-c-style)
+                      (infer-indentation-style))))
+
 (add-hook 'c-mode-common-hook
           (function (lambda () (flymake-mode))))
 (add-hook 'c++-mode-common-hook

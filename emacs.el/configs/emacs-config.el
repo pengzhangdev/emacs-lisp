@@ -86,8 +86,6 @@
 
 
 ;; my custom code style
-;;(setq indent-tabs-mode nil) ;; force only spaces for indentation for all mode
-(setq-default indent-tabs-mode nil)
 (load "my_codestyle.el")
 
 ;; revbufs
