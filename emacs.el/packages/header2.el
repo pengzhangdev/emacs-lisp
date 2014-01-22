@@ -793,9 +793,9 @@ with the same args overwrites the previous FUNCTION-TO-CALL."
 ;; (register-file-header-action "\$VERSION[ \t]*=[ \t]*\"\\([0-9]+\\.\\)+"
 ;;                              'update-write-count)
 
-(register-file-header-action "Last-Updated[ \t]*: " 'update-last-modified-date)
-(register-file-header-action "          By[ \t]*: " 'update-last-modifier)
-(register-file-header-action "    Update #[ \t]*: " 'update-write-count)
+(register-file-header-action "Last-Updated[ \t]*:[ ]*" 'update-last-modified-date)
+(register-file-header-action "          By[ \t]*:[ ]*" 'update-last-modifier)
+(register-file-header-action "    Update #[ \t]*:[ ]*" 'update-write-count)
 (when (boundp 'libreq-file-header)
   (register-file-header-action libreq-file-header 'update-lib-requires))
 
