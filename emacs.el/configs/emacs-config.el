@@ -89,6 +89,9 @@
 (setq-default indent-tabs-mode nil)
 (load "my_codestyle.el")
 
+;; auto insert header
+(require 'header2)
+
 ;; revbufs
 (load "revbufs.el")
 
