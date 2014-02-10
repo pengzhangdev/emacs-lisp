@@ -17,3 +17,8 @@ check-syntax:
  ```
 
 And in emacs, run ```M-x flymake-mode <RET>```
+
+## emacs + slime + sbcl ##
+
+if you'd like to use slime to debug or write common lisp, pls install `common-lisp-controller` which will install sbcl to /usr/bin/ .
+

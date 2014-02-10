@@ -1,4 +1,6 @@
 ;;(require 'cc-mode)
+
+;;;; CodeStyle : C/CPP
 (require 'google-c-style)
 (require 'modeline-posn)
 
@@ -121,3 +123,13 @@ Non-interactive arguments are Begin End Regexp"
   (compilation-start (concat "cppcheck --enable=all " (buffer-file-name))))
 
 
+;;;; CodeStyle : COMMON LISP
+
+(defun my-lisp-mode-common-hook ()
+  "lisp mode common hook abount the code style and config for plugins"
+  (setq inferior-lisp-program "/usr/bin/sbcl")
+  (require 'slime-autoloads)
+  (setq slime-contribs '(slime-fancy))
+)
+
+(add-hook 'lisp-mode-hook 'my-lisp-mode-common-hook)

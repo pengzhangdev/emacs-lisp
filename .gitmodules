@@ -16,3 +16,6 @@
 [submodule "emacs.el/packages/magit"]
 	path = emacs.el/packages/magit
 	url = https://github.com/magit/magit.git
+[submodule "emacs.el/packages/slime"]
+	path = emacs.el/packages/slime
+	url = https://github.com/slime/slime.git
