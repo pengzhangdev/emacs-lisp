@@ -64,7 +64,7 @@
 
 (defcustom ac+-modes
   '(emacs-lisp-mode lisp-interaction-mode
-                    c-mode c++-mode java-mode
+                    lisp-mode c-mode c++-mode java-mode
                     perl-mode cperl-mode python-mode ruby-mode
                     javascript-mode js2-mode php-mode css-mode
                     makefile-mode sh-mode fortran-mode f90-mode ada-mode
@@ -118,7 +118,7 @@
       (boundp symbol)
       (generic-p symbol)
       (facep symbol)))
-  
+
 (defun ac+-elisp-faces-candidate ()
   "Get all candidates of faces used in Emacs."
   (all-completions ac-prefix (defined-colors)))
