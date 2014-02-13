@@ -131,10 +131,10 @@ Non-interactive arguments are Begin End Regexp"
   (require 'slime-autoloads)
   (setq slime-contribs '(slime-fancy))
   (require 'ac-slime)
-  ;; (add-hook 'slime-mode-hook 'set-up-slime-ac)
+  (add-hook 'slime-mode-hook 'set-up-slime-ac)
   (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
   (slime-mode)
-  (auto-complete-mode)
+  ;;(auto-complete-mode)
   (eval-after-load "auto-complete"
     '(add-to-list 'ac-modes 'slime-repl-mode))
 )
