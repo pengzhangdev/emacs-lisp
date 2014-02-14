@@ -3,6 +3,7 @@
 ;;;; CodeStyle : C/CPP
 (require 'google-c-style)
 (require 'modeline-posn)
+(require 'autopair)
 
 (defun how-many-region (begin end regexp &optional interactive)
   "Print number of non-trivial matches for REGEXP in region.
@@ -131,9 +132,18 @@ Non-interactive arguments are Begin End Regexp"
   (require 'slime-autoloads)
   (setq slime-contribs '(slime-fancy))
   (require 'ac-slime)
-  (add-hook 'slime-mode-hook 'set-up-slime-ac)
+;;  (add-hook 'slime-mode-hook 'set-up-slime-ac)
+  (add-hook 'slime-common-hook
+            #'(lambda ()
+                (set-up-slime-ac)
+                (autopair-mode)))
   (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+  (add-hook 'slime-repl-mode-hook
+            #'(lambda ()
+                (set-up-slime-ac)
+                (autopair-mode)))
   (slime-mode)
+;;  (autopair-mode)
   ;;(auto-complete-mode)
   (eval-after-load "auto-complete"
     '(add-to-list 'ac-modes 'slime-repl-mode))
