@@ -133,11 +133,11 @@ Non-interactive arguments are Begin End Regexp"
   (setq slime-contribs '(slime-fancy))
   (require 'ac-slime)
 ;;  (add-hook 'slime-mode-hook 'set-up-slime-ac)
-  (add-hook 'slime-common-hook
+  (add-hook 'slime-mode-common-hook
             #'(lambda ()
                 (set-up-slime-ac)
                 (autopair-mode)))
-  (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+;; (add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
   (add-hook 'slime-repl-mode-hook
             #'(lambda ()
                 (set-up-slime-ac)
