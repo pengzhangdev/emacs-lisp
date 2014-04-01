@@ -3,13 +3,14 @@
 EMACS_CONFIG_PATH=emacs-config.el
 EMACS_SUBDIR_CONFIG_PATH=$(cd "$(dirname "$0")"; pwd)/emacs.el/subdirs.el
 EMACS_LOAD_PATH=$(cd "$(dirname "$0")"; pwd)/emacs.el/
+PRELUDE_PATH=$(cd "$(dirname "$0")"; pwd)/prelude
 
 function install_emacs_config()
 {
+    cp emacs.rc ~/.emacs
     echo ";;>>>>>>>>>>>> load emacs-config <<<<<<<<<<<<<<<<" >> ~/.emacs
-    echo "(load \"$EMACS_SUBDIR_CONFIG_PATH\") " >> ~/.emacs
-    echo "(emacs-add-subdirs-to-load-path \"$EMACS_LOAD_PATH\")" >> ~/.emacs
-    echo "(load \"$EMACS_CONFIG_PATH\")" >> ~/.emacs
+    echo "(add-to-list 'load-path \"$PRELUDE_PATH\")" >> ~/.emacs
+    echo "(load \"init.el\")" >> ~/.emacs
 }
 
 function check_file_exits()

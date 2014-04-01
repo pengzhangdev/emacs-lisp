@@ -1,0 +1,28 @@
+;;>>>>>>>>>>>> load emacs-config <<<<<<<<<<<<<<<<
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(ac+-modes (quote (emacs-lisp-mode lisp-interaction-mode lisp-mode c-mode c++-mode java-mode perl-mode cperl-mode python-mode ruby-mode javascript-mode js2-mode php-mode css-mode makefile-mode sh-mode fortran-mode f90-mode ada-mode xml-mode sgml-mode html-mode fundamental-mode org-mode svn-log-edit-mode text-mode autoconf-mode makefile-automake-mode makefile-gmake-mode conf-javaprop-mode conf-unix-mode change-log-mode tcl-mode awk-mode latex-mode rst-mode)))
+ '(column-number-mode t)
+ '(display-time-mode t)
+ '(face-font-family-alternatives (quote (("YaHei Consolas Hybrid" "courier" "fixed") ("courier" "CMU Typewriter Text" "fixed") ("Sans Serif" "helv" "helvetica" "arial" "fixed") ("helv" "helvetica" "arial" "fixed"))))
+ '(face-font-registry-alternatives (quote (("unicode-bmp" "gb2312.1980" "gb2312.80&gb8565.88" "gbk" "gb18030") ("jisx0208.1990" "jisx0208.1983" "jisx0208.1978") ("ksc5601.1989" "ksx1001.1992" "ksc5601.1987") ("muletibetan-2" "muletibetan-0"))))
+ '(scroll-bar-mode (quote right))
+ '(semantic-c-dependency-system-include-path (quote ("/usr/include")))
+;; '(session-use-package t nil (session))
+ '(show-paren-mode t)
+ '(show-trailing-whitespace t)
+ '(text-mode-hook (quote (turn-on-auto-fill text-mode-hook-identify))))
+
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit nil :stipple nil :background "black" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 120 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
+ '(magit-diff-del ((t (:foreground "red"))))
+ '(magit-item-highlight ((t nil))))
+
+
