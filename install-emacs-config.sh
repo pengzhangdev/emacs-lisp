@@ -7,10 +7,12 @@ PRELUDE_PATH=$(cd "$(dirname "$0")"; pwd)/prelude
 
 function install_emacs_config()
 {
-    cp emacs.rc ~/.emacs
-    echo ";;>>>>>>>>>>>> load emacs-config <<<<<<<<<<<<<<<<" >> ~/.emacs
-    echo "(add-to-list 'load-path \"$PRELUDE_PATH\")" >> ~/.emacs
-    echo "(load \"init.el\")" >> ~/.emacs
+    cp emacs.autoload.rc ~/.emacs
+    sed -i "s/.autoload.rc/.emacs.${USER}.el/" ~/.emacs
+    cp emacs.rc ~/.emacs.${USER}.el
+    echo ";;>>>>>>>>>>>> load emacs-config <<<<<<<<<<<<<<<<" >> ~/.emacs.${USER}.el
+    echo "(add-to-list 'load-path \"$PRELUDE_PATH\")" >> ~/.emacs.${USER}.el
+    echo "(load \"init.el\")" >> ~/.emacs.${USER}.el
 }
 
 function check_file_exits()
